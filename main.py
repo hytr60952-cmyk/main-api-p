@@ -27,13 +27,19 @@ STATS = {
 # ================= APP INIT =================
 app = FastAPI(title="Master Instagram Scraper API")
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://followerssupply.store",
+        "https://www.followerssupply.store"
+    ],
     allow_credentials=True,
     allow_methods=["GET"],
     allow_headers=["*"],
 )
+
 
 # Logging
 logging.basicConfig(level=logging.INFO)
